@@ -1,0 +1,22 @@
+export const sampleCountries = [
+
+  { name: 'India', flag: "https://flagsapi.com/IN/shiny/64.png", services: ['Tourist Visa', 'Business Visa', 'Passport Renewal'] },
+  { name: 'United States', flag: "https://flagsapi.com/US/shiny/64.png", services: ['Visa Interview Prep', 'Travel Insurance', 'Document Attestation'] },
+  { name: 'United Kingdom', flag: "https://flagsapi.com/GB/shiny/64.png", services: ['Tourist Visa', 'Study Visa Guidance'] },
+  { name: 'Canada', flag: "https://flagsapi.com/CA/shiny/64.png", services: ['PR Assistance', 'Visitor Visa', 'Biometrics Appointment Support'] },
+  { name: 'Australia', flag: "https://flagsapi.com/AU/shiny/64.png", services: ['Student Visa', 'Work Visa', 'Skill Assessment Help'] },
+  { name: 'Germany', flag: "https://flagsapi.com/DE/shiny/64.png", services: ['Schengen Visa', 'Work Permit Assistance'] },
+  { name: 'France', flag: "https://flagsapi.com/FR/shiny/64.png", services: ['Schengen Visa', 'Document Legalization'] },
+  { name: 'Italy', flag: "https://flagsapi.com/IT/shiny/64.png", services: ['Schengen Visa', 'Travel Insurance'] },
+  { name: 'Spain', flag: "https://flagsapi.com/ES/shiny/64.png", services: ['Schengen Visa', 'Tour Packages'] },
+  { name: 'Japan', flag: "https://flagsapi.com/JP/shiny/64.png", services: ['Tourist Visa', 'Corporate Travel Handling'] },
+  { name: 'China', flag: "https://flagsapi.com/CN/shiny/64.png", services: ['Business Visa', 'Document Authentication'] },
+  { name: 'Singapore', flag: "https://flagsapi.com/SG/shiny/64.png", services: ['Short-Term Visa', 'Corporate Visa Support'] },
+  { name: 'Malaysia', flag: "https://flagsapi.com/MY/shiny/64.png", services: ['Tourist Visa', 'E-Visa Processing'] },
+  { name: 'United Arab Emirates', flag: "https://flagsapi.com/AE/shiny/64.png", services: ['Dubai Visa', 'Emirates ID Assistance'] },
+  { name: 'Saudi Arabia', flag: "https://flagsapi.com/SA/shiny/64.png", services: ['Work Visa', 'Umrah Visa', 'Document Attestation'] },
+  { name: 'Qatar', flag: "https://flagsapi.com/QA/shiny/64.png", services: ['Work Visa', 'Family Visit Visa'] },
+  { name: 'Nepal', flag: "https://flagsapi.com/NP/shiny/64.png", services: ['Travel Permits', 'Trekking Packages'] },
+  { name: 'Thailand', flag: "https://flagsapi.com/TH/shiny/64.png", services: ['Tourist Visa', 'Hotel + Flight Bookings'] },
+  { name: 'South Africa', flag: "https://flagsapi.com/ZA/shiny/64.png", services: ['Tourist Visa', 'Document Legalization'] },
+];
