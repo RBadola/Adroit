@@ -37,11 +37,11 @@ const steps = [
 
 export default function VisaSteps() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-10 sm:py-12 md:py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <p className="text-sm text-gray-400 uppercase tracking-wide">Visa Steps</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold">
+        <div className="text-center mb-8 sm:mb-10">
+          <p className="text-xs sm:text-sm text-gray-400 uppercase tracking-wide">Visa Steps</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mt-2">
             Get your <span className="text-[#0b6cf6]">Visa</span> within <span className="text-[#0b6cf6]">4 Steps</span>
           </h2>
         </div>
@@ -55,22 +55,22 @@ export default function VisaSteps() {
           {steps.map((s, idx) => (
             <article
               key={s.id}
-              className="relative overflow-visible bg-white rounded-2xl border border-[#e6f0ff] p-6 md:p-8 shadow-sm hover:shadow-md transition transform hover:-translate-y-1"
+              className="relative overflow-visible bg-white rounded-2xl border border-[#e6f0ff] p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-md transition transform hover:-translate-y-1"
               aria-labelledby={`step-${s.id}`}
             >
               {/* big faded number */}
               <span
                 aria-hidden
-                className="absolute text-[5.5rem] md:text-[6rem] font-extrabold text-gray-200 right-6 bottom-3 pointer-events-none select-none"
+                className="absolute text-[4rem] sm:text-[5.5rem] md:text-[6rem] font-extrabold text-gray-200 right-3 sm:right-6 bottom-2 sm:bottom-3 pointer-events-none select-none"
                 style={{ opacity: 0.18 }}
               >
                 {s.id}
               </span>
 
-              <div className="flex items-start gap-6">
+              <div className="flex items-start gap-4 sm:gap-6">
                 {/* image block with cutout-like left shape */}
                 <div className="flex-shrink-0 relative">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-lg bg-white p-3 shadow-sm border border-[#f0f6ff]">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-lg bg-white p-2 sm:p-3 shadow-sm border border-[#f0f6ff]">
                     <img
                       src={s.img}
                       alt={s.title}
@@ -78,20 +78,20 @@ export default function VisaSteps() {
                     />
                   </div>
 
-                  {/* small decorative notch to mimic cutout (optional) */}
-                  <div className="absolute -left-6 -bottom-4 w-12 h-8 bg-white rounded-tr-full shadow-sm" />
+                  {/* small decorative notch to mimic cutout (optional) - hidden on mobile */}
+                  <div className="hidden sm:block absolute -left-6 -bottom-4 w-12 h-8 bg-white rounded-tr-full shadow-sm" />
                 </div>
 
-                <div className="flex-1">
-                  <h3 id={`step-${s.id}`} className="text-xl font-semibold text-[#0b2466]">
+                <div className="flex-1 min-w-0">
+                  <h3 id={`step-${s.id}`} className="text-lg sm:text-xl font-semibold text-[#0b2466]">
                     {s.title}
                   </h3>
-                  <p className="mt-3 text-gray-600 max-w-xl">{s.desc}</p>
+                  <p className="mt-2 sm:mt-3 text-sm sm:text-base text-gray-600 max-w-xl">{s.desc}</p>
 
-                  <div className="mt-4">
+                  <div className="mt-3 sm:mt-4">
                     <a
                       href="/services"
-                      className="inline-block px-5 py-2 rounded-md border border-[#cfe3ff] text-[#0b2466] font-medium hover:bg-[#eef6ff] transition"
+                      className="inline-block px-4 sm:px-5 py-1.5 sm:py-2 rounded-md border border-[#cfe3ff] text-[#0b2466] font-medium hover:bg-[#eef6ff] transition text-sm sm:text-base"
                     >
                       Learn more
                     </a>

@@ -29,7 +29,7 @@ export default function WhyChoose() {
             />
 
             {/* small overlaid artwork at bottom-right (like screenshot) */}
-            <div className="absolute right-6 -bottom-8 w-36 h-36 rounded-md bg-white p-2 shadow-md">
+            <div className="absolute right-3 sm:right-6 -bottom-6 sm:-bottom-8 w-24 h-24 sm:w-36 sm:h-36 rounded-md bg-white p-2 shadow-md">
               <img
                 src={"/Travel (5).jpg"}
                 alt="small travel tile"
@@ -59,12 +59,12 @@ export default function WhyChoose() {
         <div>
           <p className="text-sm text-gray-400 uppercase tracking-wide mb-3">Adroit Travels Service</p>
 
-          <h2 id="why-heading" className="text-3xl sm:text-4xl font-extrabold leading-tight mb-6">
+          <h2 id="why-heading" className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-4 sm:mb-6">
             Why choose <span className="text-[#163f9a]">Adroit Travels</span> for your{" "}
             <span className="text-[#0b6cf6]">visa processing</span> needs?
           </h2>
 
-          <div className="text-gray-600 space-y-5 text-base">
+          <div className="text-gray-600 space-y-3 sm:space-y-5 text-sm sm:text-base">
             <p>
               Many visa processing providers lack proper security and reliable systems, which can increase the risk of
               application errors or rejections. Adroit Travels follows strict checklists and secure submission processes

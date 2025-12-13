@@ -65,8 +65,8 @@ export default function Contact() {
           }}
         />
         <div className="relative z-10 text-white">
-          <div className="container py-10 md:py-14">
-            <nav className="flex items-center gap-2 text-white/90 text-sm mb-5">
+          <div className="container py-8 sm:py-10 md:py-14">
+            <nav className="flex items-center gap-2 text-white/90 text-xs sm:text-sm mb-4 sm:mb-5">
               <FiHome />
               <Link to="/" className="hover:underline">
                 Home
@@ -75,20 +75,20 @@ export default function Contact() {
               <span>Contact Us</span>
             </nav>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-center">
               <div className="md:col-span-2">
-                <h1 className="text-3xl md:text-4xl font-extrabold">Contact Adroit Travels</h1>
-                <p className="mt-4 text-white/95 leading-relaxed">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">Contact Adroit Travels</h1>
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-white/95 leading-relaxed">
                   Have a query about visas, appointments, or document legalization?
-                  Send us a message — we’ll respond with clear next steps for Indian applicants.
+                  Send us a message — we'll respond with clear next steps for Indian applicants.
                 </p>
               </div>
               <div className="md:col-span-1">
-                <div className="rounded-xl bg-white p-4 shadow-md ring-1 ring-white/40">
+                <div className="rounded-xl bg-white p-3 sm:p-4 shadow-md ring-1 ring-white/40">
                   <img
                     src="/Travel (2).png"
                     alt=""
-                    className="w-full h-44 md:h-48 object-contain rounded-lg"
+                    className="w-full h-40 sm:h-44 md:h-48 object-contain rounded-lg"
                   />
                 </div>
               </div>
@@ -100,8 +100,8 @@ export default function Contact() {
       </header>
 
       {/* TOP CONTACT CARDS */}
-      <section className="container py-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <section className="container py-8 sm:py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           <InfoCard
             icon={<FiPhone />}
             title="Call Us"
@@ -135,10 +135,10 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* FORM */}
           <div className="lg:col-span-2">
-            <div className="rounded-2xl border bg-white shadow-sm p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-extrabold">Send us a message</h2>
-              <p className="mt-2 text-gray-600">
-                Fill the form and we’ll get back with steps, timelines and a checklist link if needed.
+            <div className="rounded-2xl border bg-white shadow-sm p-4 sm:p-6 md:p-8">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold">Send us a message</h2>
+              <p className="mt-2 text-sm sm:text-base text-gray-600">
+                Fill the form and we'll get back with steps, timelines and a checklist link if needed.
               </p>
 
               {submitted && (
@@ -248,8 +248,8 @@ export default function Contact() {
 
           {/* OFFICES */}
           <div className="lg:col-span-1">
-            <div className="rounded-2xl border bg-white shadow-sm p-6 md:p-8">
-              <h3 className="text-xl font-extrabold">Our Offices</h3>
+            <div className="rounded-2xl border bg-white shadow-sm p-4 sm:p-6 md:p-8">
+              <h3 className="text-lg sm:text-xl font-extrabold">Our Offices</h3>
               <div className="mt-5 space-y-5">
                 <Office
                   city="New Delhi"
@@ -267,9 +267,9 @@ export default function Contact() {
       </section>
 
       {/* FAQ */}
-      <section className="container pb-14">
-        <div className="rounded-2xl border bg-white shadow-sm p-6 md:p-8">
-          <h2 className="text-xl md:text-2xl font-extrabold">Frequently Asked Questions</h2>
+      <section className="container pb-10 sm:pb-14">
+        <div className="rounded-2xl border bg-white shadow-sm p-4 sm:p-6 md:p-8">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold">Frequently Asked Questions</h2>
           <div className="mt-4 divide-y">
             {FAQS.map((f, i) => (
               <details key={i} className="group p-4 open:pb-6">

@@ -21,10 +21,10 @@ export default function SearchBar() {
   const [openCat, setOpenCat] = useState(false)
 
   return (
-    <div className="container -mt-8">
-      <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 shadow-xl">
+    <div className="container -mt-4 sm:-mt-8">
+      <div className="bg-white border-2 border-gray-200 rounded-2xl p-4 sm:p-6 shadow-xl">
 
-        <form className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center justify-center  ">
+        <form className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 items-end md:items-center justify-center">
 
           {/* Citizen */}
           <div>

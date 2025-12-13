@@ -18,8 +18,8 @@ const FooterColumn = ({ title, children }) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f1030] text-white mt-12" style={{color:"white"}}>
-      <div className="container py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-[#0f1030] text-white mt-8 sm:mt-12" style={{color:"white"}}>
+      <div className="container py-8 sm:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         {/* Column 1: Company */}
         <FooterColumn title="Company">
           <a className="block hover:text-white/90 transition">About Adroit Travels</a>
@@ -49,14 +49,14 @@ export default function Footer() {
         </FooterColumn>
 
         {/* Column 4: Logo + Disclaimer */}
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col justify-between sm:col-span-2 lg:col-span-1">
           <div>
             <img
               src={"/logo.png"}
               alt="Adroit Travels logo"
-              className="w-20 h-auto mb-4 object-contain"
+              className="w-16 sm:w-20 h-auto mb-3 sm:mb-4 object-contain"
             />
-            <p className="text-sm text-slate-200/90 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-200/90 leading-relaxed">
               <strong>Disclaimer</strong>
               <br />
               Due to periodic changes of information and requirements, Adroit Travels does not guarantee
@@ -65,29 +65,31 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="mt-6">
-            <div className="flex items-center gap-4 mb-3">
-              <FiMail className="text-slate-200" />
-              <div>
+          <div className="mt-4 sm:mt-6">
+            <div className="flex items-start gap-3 sm:gap-4 mb-3">
+              <FiMail className="text-slate-200 mt-1 flex-shrink-0" />
+              <div className="min-w-0">
                 <div className="text-xs text-slate-300">Email</div>
-                <a href="mailto:infoadroit19@gmail.com" className="text-sm text-white">infoadroit19@gmail.com</a>
+                <a href="mailto:infoadroit19@gmail.com" className="text-xs sm:text-sm text-white break-words">
+                  infoadroit19@gmail.com
+                </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-4 mb-3">
-              <FiPhone className="text-slate-200" />
+            <div className="flex items-start gap-3 sm:gap-4 mb-3">
+              <FiPhone className="text-slate-200 mt-1 flex-shrink-0" />
               <div>
                 <div className="text-xs text-slate-300">Phone</div>
-                <div className="text-sm text-white">+91 9811038435</div>
-                <div className="text-sm text-white">+91 9811038434</div>
+                <div className="text-xs sm:text-sm text-white">+91 9811038435</div>
+                <div className="text-xs sm:text-sm text-white">+91 9811038434</div>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <FiMapPin className="text-slate-200 mt-1" />
-              <div>
+            <div className="flex items-start gap-3 sm:gap-4">
+              <FiMapPin className="text-slate-200 mt-1 flex-shrink-0" />
+              <div className="min-w-0">
                 <div className="text-xs text-slate-300">Address</div>
-                <div className="text-sm text-white">
+                <div className="text-xs sm:text-sm text-white">
                  86/3 Janpath Connaught Place New Delhi-110001
                 </div>
               </div>
@@ -98,18 +100,20 @@ export default function Footer() {
 
       {/* Divider dotted and small indicators (visual similar to reference) */}
       <div className="border-t border-white/10 relative">
-        <div className="container flex items-center justify-between py-6">
+        <div className="container flex flex-col sm:flex-row items-start sm:items-center justify-between py-4 sm:py-6 gap-4 sm:gap-6">
           {/* Left: contact + social */}
-          <div className="flex items-start gap-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-start gap-4 sm:gap-8">
             <div>
-              <div className="text-sm text-slate-300">Contact Us</div>
-              <a href="mailto:infoadroit19@gmail.com" className="mt-1 text-white font-medium">infoadroit19@gmail.com</a>
-              <div className="text-sm text-slate-400">Phone: +919811038434 +919811038435</div>
+              <div className="text-xs sm:text-sm text-slate-300">Contact Us</div>
+              <a href="mailto:infoadroit19@gmail.com" className="mt-1 text-xs sm:text-sm text-white font-medium break-words block">
+                infoadroit19@gmail.com
+              </a>
+              <div className="text-xs sm:text-sm text-slate-400">Phone: +919811038434 +919811038435</div>
             </div>
 
             <div className="flex flex-col gap-2">
-              <div className="text-sm text-slate-300">Follow Us</div>
-              <div className="flex items-center gap-3 mt-1">
+              <div className="text-xs sm:text-sm text-slate-300">Follow Us</div>
+              <div className="flex items-center gap-2 sm:gap-3 mt-1">
                 <a href="https://www.facebook.com/share/17UDRsPsuc/" className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition" aria-label="Facebook">
                   <FaFacebookF />
                 </a>
@@ -149,9 +153,13 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="bg-[#0b0b20]">
-        <div className="container py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-sm text-slate-400">© {new Date().getFullYear()} Adroit Travels — All rights reserved</div>
-          <div className="text-sm text-slate-400">Terms • Privacy • Sitemap</div>
+        <div className="container py-4 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+          <div className="text-xs sm:text-sm text-slate-400 text-center sm:text-left">
+            © {new Date().getFullYear()} Adroit Travels — All rights reserved
+          </div>
+          <div className="text-xs sm:text-sm text-slate-400 text-center sm:text-right">
+            Terms • Privacy • Sitemap
+          </div>
         </div>
       </div>
     </footer>

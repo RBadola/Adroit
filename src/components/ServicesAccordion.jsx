@@ -66,15 +66,15 @@ export default function ServicesAccordion() {
   const toggle = (i) => setOpenIndex((prev) => (prev === i ? -1 : i))
 
   return (
-    <section className="container py-16">
-      <div className="text-center mb-12">
-        <p className="text-sm text-gray-400 uppercase tracking-wide mb-1">Adroit Travels Service</p>
-        <h2 className="text-3xl md:text-4xl font-extrabold">
+    <section className="container py-10 sm:py-12 md:py-16">
+      <div className="text-center mb-8 sm:mb-12">
+        <p className="text-xs sm:text-sm text-gray-400 uppercase tracking-wide mb-1">Adroit Travels Service</p>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold px-4">
           <span className="text-[#1c4dde]">Services</span> offered by Adroit Travels
         </h2>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {items.map((item, i) => {
           const isOpen = openIndex === i
 
@@ -85,28 +85,28 @@ export default function ServicesAccordion() {
             >
               {/* Header - compact fixed height */}
               <header
-                className="flex items-center justify-between px-5 md:px-6 py-4 md:py-3 cursor-pointer"
+                className="flex items-center justify-between px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-3 cursor-pointer gap-3"
                 onClick={() => toggle(i)}
                 role="button"
                 aria-expanded={isOpen}
                 aria-controls={`service-body-${i}`}
               >
-                <div className="flex items-center gap-4">
-                  <span className="text-gray-400 font-medium md:text-lg">{item.id}</span>
-                  <h3 className="text-lg md:text-xl font-semibold text-[#0b2466]">{item.title}</h3>
+                <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-1">
+                  <span className="text-gray-400 font-medium text-sm sm:text-base md:text-lg flex-shrink-0">{item.id}</span>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-[#0b2466] truncate">{item.title}</h3>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                   {/* thumbnail kept small so header remains short */}
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-14 h-14 md:w-16 md:h-16 object-contain rounded-md"
+                    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain rounded-md"
                     onClick={(e) => e.stopPropagation()} // prevent toggling when clicking image
                   />
 
                   <FiChevronDown
-                    className={`text-gray-500 transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}
+                    className={`text-gray-500 transition-transform flex-shrink-0 ${isOpen ? "rotate-180" : "rotate-0"}`}
                     size={20}
                     aria-hidden
                   />
@@ -115,13 +115,13 @@ export default function ServicesAccordion() {
 
               {/* Collapsible body */}
               <Collapsible isOpen={isOpen}>
-                <div id={`service-body-${i}`} className="px-5 md:px-6 pb-6 md:pb-8">
-                  <p className="text-gray-600 leading-relaxed">{item.body}</p>
+                <div id={`service-body-${i}`} className="px-4 sm:px-5 md:px-6 pb-4 sm:pb-6 md:pb-8">
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{item.body}</p>
 
-                  <div className="mt-5">
+                  <div className="mt-4 sm:mt-5">
                     <a
                       href={`/services/${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="inline-block px-6 py-3 border border-[#1c2b5a] rounded-lg text-[#1c2b5a] font-semibold hover:bg-[#1c2b5a] hover:text-white transition"
+                      className="inline-block px-5 sm:px-6 py-2 sm:py-3 text-sm sm:text-base border border-[#1c2b5a] rounded-lg text-[#1c2b5a] font-semibold hover:bg-[#1c2b5a] hover:text-white transition"
                       onClick={(e) => e.stopPropagation()}
                     >
                       View Service Details
@@ -134,11 +134,11 @@ export default function ServicesAccordion() {
         })}
       </div>
 
-      <div className="flex justify-center mt-12">
+      <div className="flex justify-center mt-8 sm:mt-12">
         <a
           href="/services"
           style={{color:"white"}}
-          className="px-8 py-3 rounded-lg bg-[#23336f]  text-white font-semibold hover:bg-[#153ab0] transition"
+          className="px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-[#23336f]  text-white font-semibold hover:bg-[#153ab0] transition"
         >
           View All Services
         </a>

@@ -12,5 +12,5 @@ body { @apply bg-white text-blue-900; }
 
 
 /* small helpers */
-.container { @apply max-w-7xl mx-auto px-6; }
-.card { @apply bg-white rounded-xl shadow-md p-6; }
+.container { @apply max-w-7xl mx-auto px-4 sm:px-6; }
+.card { @apply bg-white rounded-xl shadow-md p-4 sm:p-6; }
