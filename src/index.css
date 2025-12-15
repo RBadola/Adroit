@@ -10,6 +10,10 @@
 
 body { @apply bg-white text-blue-900; }
 
+a {
+  @apply text-white;
+}
+
 
 /* small helpers */
 .container { @apply max-w-7xl mx-auto px-4 sm:px-6; }

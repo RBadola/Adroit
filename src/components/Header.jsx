@@ -5,10 +5,7 @@ import { FaAngleDown } from 'react-icons/fa'
 
 const groupA = [
   { to: '/about', label: 'About Adroit Travels' },
-  { to: '/career', label: 'Career' },
-  { to: '/', label: 'News & Press' },
-  { to: '/', label: 'Blogs' },
-  { to: '/', label: 'Media Library' },
+
   { to: '/contact', label: 'Contact Us' },
   { to: '/', label: 'Business Networks' }
 ]
@@ -288,12 +285,10 @@ export default function Header() {
             )}
           </div>
 
-        <Link to="/#countries" className="text-gray-700" onClick={() => setOpen(null)}>
-  Countries
-</Link>
+  
           <div className="flex items-center gap-3">
-            <Link to="/signup" className="px-4 py-2 rounded-md bg-saffron text-white font-semibold" onClick={() => setOpen(null)}>
-              Create Profile
+            <Link to="/contact" className="px-4 py-2 rounded-md bg-saffron text-white font-semibold" onClick={() => setOpen(null)}>
+              Contact Us
             </Link>
           </div>
         </nav>
@@ -404,28 +399,16 @@ export default function Header() {
               )}
             </div>
 
-            {/* Mobile Countries Link */}
-            <Link 
-              to="/#countries" 
-              className="block text-gray-700 font-medium py-2"
-              onClick={(e) => {
-                e.stopPropagation()
-                setMobileMenuOpen(false)
-              }}
-            >
-              Countries
-            </Link>
-
             {/* Mobile Create Profile Button */}
             <Link 
-              to="/signup" 
+              to="/contact" 
               className="block w-full text-center px-4 py-2 rounded-md bg-saffron text-white font-semibold"
               onClick={(e) => {
                 e.stopPropagation()
                 setMobileMenuOpen(false)
               }}
             >
-              Create Profile
+              Contact Us
             </Link>
           </div>
         </div>
