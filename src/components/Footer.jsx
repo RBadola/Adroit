@@ -2,6 +2,7 @@ import React from "react"
 import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaWhatsapp, FaInstagram } from "react-icons/fa"
 import { SiTiktok } from "react-icons/si"
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
+import { Link } from "react-router-dom"
 
 /*
   Using the image you provided for the footer logo / art.
@@ -18,34 +19,41 @@ const FooterColumn = ({ title, children }) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f1030] text-white mt-8 sm:mt-12" style={{color:"white"}}>
+    <footer className="bg-[#0f1030] text-white mt-8 sm:mt-12" style={{ color: "white" }}>
       <div className="container py-8 sm:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         {/* Column 1: Company */}
         <FooterColumn title="Company">
-          <a className="block hover:text-white/90 transition">About Adroit Travels</a>
-          <a className="block hover:text-white/90 transition">Career</a>
-          <a className="block hover:text-white/90 transition">News</a>
-          <a className="block hover:text-white/90 transition">Media Library</a>
-          <a className="block hover:text-white/90 transition">Business Network</a>
-          <a className="block hover:text-white/90 transition">Contact Us</a>
-          <a className="block hover:text-white/90 transition">Blogs</a>
+          <Link to="/about" className="block hover:text-white/90 transition">
+            About Adroit Travels
+          </Link>
+          <Link to="/network" className="block hover:text-white/90 transition">
+            Business Network
+          </Link>
+          <Link to="/contact" className="block hover:text-white/90 transition">
+            Contact Us
+          </Link>
         </FooterColumn>
 
-        {/* Column 2: Information */}
-        <FooterColumn title="Information">
-          <a className="block hover:text-white/90 transition">Find VISA Requirements</a>
-          <a className="block hover:text-white/90 transition">Embassies & Consulates</a>
-          <a className="block hover:text-white/90 transition">Explore Countries</a>
-          <a className="block hover:text-white/90 transition">Explore Visa Fees</a>
-        </FooterColumn>
-
-        {/* Column 3: Services */}
         <FooterColumn title="Services">
-          <a className="block hover:text-white/90 transition">Visa Consultancy</a>
-          <a className="block hover:text-white/90 transition">Visa Processing in India</a>
-          <a className="block hover:text-white/90 transition">Document Legalization</a>
-          <a className="block hover:text-white/90 transition">E-visa Processing</a>
-          <a className="block hover:text-white/90 transition">Book an Appointment</a>
+          {/* Links to the B2B slugs we defined earlier */}
+          <Link
+            to="/services/Visa-Application-Assistance"
+            className="block hover:text-white/90 transition"
+          >
+            Visa Application Assistance
+          </Link>
+          <Link
+            to="/services/Work-Visa-Consultants"
+            className="block hover:text-white/90 transition"
+          >
+            Work Visa Consultants
+          </Link>
+          <Link
+            to="/services/B2B-Partnering"
+            className="block hover:text-white/90 transition"
+          >
+            B2B Partnering
+          </Link>
         </FooterColumn>
 
         {/* Column 4: Logo + Disclaimer */}
@@ -80,8 +88,8 @@ export default function Footer() {
               <FiPhone className="text-slate-200 mt-1 flex-shrink-0" />
               <div>
                 <div className="text-xs text-slate-300">Phone</div>
-                <div className="text-xs sm:text-sm text-white">+91 9811038435</div>
                 <div className="text-xs sm:text-sm text-white">+91 9811038434</div>
+                <div className="text-xs sm:text-sm text-white">+91 9811038435</div>
               </div>
             </div>
 
@@ -90,7 +98,7 @@ export default function Footer() {
               <div className="min-w-0">
                 <div className="text-xs text-slate-300">Address</div>
                 <div className="text-xs sm:text-sm text-white">
-                 86/3 Janpath Connaught Place New Delhi-110001
+                  86/3 Janpath Connaught Place New Delhi-110001
                 </div>
               </div>
             </div>
@@ -108,8 +116,25 @@ export default function Footer() {
               <a href="mailto:infoadroit19@gmail.com" className="mt-1 text-xs sm:text-sm text-white font-medium break-words block">
                 infoadroit19@gmail.com
               </a>
-              <div className="text-xs sm:text-sm text-slate-400">Phone: +919811038434 +919811038435</div>
-            </div>
+              <div className="text-xs sm:text-sm text-slate-600 space-x-2">
+                <span className="text-slate-400">Phone:</span>
+
+                {/* Functional Link for the first number */}
+                <a
+                  href="tel:+919811038434"
+                  className="hover:underline text-blue-500 font-medium"
+                >
+                  +919811038434
+                </a>
+
+                {/* Functional Link for the second number */}
+                <a
+                  href="tel:+919811038435"
+                  className="hover:underline text-blue-500 font-medium"
+                >
+                  +919811038435
+                </a>
+              </div>            </div>
 
             <div className="flex flex-col gap-2">
               <div className="text-xs sm:text-sm text-slate-300">Follow Us</div>
@@ -118,7 +143,7 @@ export default function Footer() {
                   <FaFacebookF />
                 </a>
                 <a href="https://www.instagram.com/adroittravels?igsh=aTdhcWVsbHl4dHVs" className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition" aria-label="Twitter">
-                  <FaInstagram/>
+                  <FaInstagram />
                 </a>
                 {/* <a className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition" aria-label="YouTube">
                   <FaYoutube />

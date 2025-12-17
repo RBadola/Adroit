@@ -39,13 +39,9 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/services/visa-consultancy" element={<VisaConsultancy />} />
-            <Route path="/services/cross-border-visa-processing" element={<CrossBorderProcessing />} />
-            <Route path="/services/visa-processing-in-india" element={<VisaProcessingIndia />} />
-            <Route path="/services/e-visa-processing" element={<EVisaProcessing />} />
-            <Route path="/services/document-legalization" element={<DocumentLegalization />} />
-            <Route path="/services/express-consultation" element={<ExpressConsultation />} />
-            {/* Company menu */}
+            <Route path="/services/B2B-Partnering" element={<VisaConsultancy />} />
+            <Route path="/services/Work-Visa-Consultants" element={<CrossBorderProcessing />} />
+            <Route path="/services/Visa-Application-Assistance" element={<VisaProcessingIndia />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/career" element={<Careers />} />

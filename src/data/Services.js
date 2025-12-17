@@ -1,194 +1,109 @@
-// src/data/serviceDetails.js
-export const SERVICE_DETAILS = {
-  "visa-consultancy": {
-    slug: "visa-consultancy",
-    title: "Visa Consultancy",
-    heroImg: "/Travel (2).png",
-    why: {
-      heading: "Why choose Adroit Travels as your Visa Consultancy Firm?",
-      image: "/Travel (2).png",
-      points: [
-        "India-specific expertise: forms, evidence, and embassy nuances handled every day.",
-        "Strong file strategy: we remove weak documents and add proofs that matter.",
-        "Interview readiness: mock Q&A and red-flag prep so you’re never surprised.",
-        "Transparent timelines and realistic outcomes—no hype, just clarity.",
-      ],
-      copy:
-        "We’ve helped Indian travellers, students and professionals prepare strong visa files for 180+ destinations. Our consultants review your goals, travel history, and evidence, then build a clear path to approval.",
-    },
-    steps: [
-      { title: "Activate your consultancy service", body: "Create your Adroit profile, select Visa Consultancy, share basic trip goals and your preferred time slot." },
-      { title: "Attend your Consultancy Session", body: "A senior consultant reviews your case, flags risks, and finalises the right category and route." },
-      { title: "Get your customised checklist", body: "Receive a crisp document list with notes, samples, and format instructions tailored to your case." },
-      { title: "Process your documents", body: "We help with notarisation, translations, affidavits, bank letters and other India-specific paperwork." },
-      { title: "Complete the application form", body: "We guide each field, barcode pages, uploads, and photo rules to ensure a clean submission." },
-      { title: "Final review & submission plan", body: "Receive packaging instructions, centre/embassy specifics, and appointment guidance." },
-    ],
-    included: [
-      { title: "Cover Letter & Case Strategy", img: "/Travel (7).jpg", desc: "A persuasive cover letter and a document map that tells your story clearly." },
-      { title: "Application Form Fill-up", img: "/Travel (1).jpg", desc: "Form guidance, uploads, photo sizing and payment support where applicable." },
-      { title: "Appointment Booking", img: "/Travel (3).jpg", desc: "Help locating slots, centre selection, and checklist of what to carry." },
-      { title: "Submission & Tracking Tips", img: "/Travel (5).jpg", desc: "Packaging order, labels, and status tracking advice after submission." },
-    ],
-  },
+// src/data/serviceDetails.js - New B2B Focused Services
 
-  "cross-border-visa-processing": {
-    slug: "cross-border-visa-processing",
-    title: "Cross-Border Visa Processing",
+export const SERVICE_DETAILS = {
+  // ----------------------------------------------------------------------
+  // 1. END-TO-END VISA APPLICATION OUTSOURCING
+  // This combines the operational rigor of "visa-processing-in-india" and "cross-border"
+  // ----------------------------------------------------------------------
+  "Visa-Application-Assistance": {
+    slug: "Visa-Application-Assistance",
+    title: "Visa Application Assistance",
     heroImg: "/Travel (4).jpg",
     why: {
-      heading: "Why cross-border with Adroit?",
+      heading: "Why Outsource Visa Management to Adroit Travels?",
       image: "/Travel (4).jpg",
       points: [
-        "We coordinate with partner centres & missions inside India for routes that require it.",
-        "Accurate packaging per mission’s micro-rules—barcode pages, order, and tags.",
-        "Clear logistics: courier, drop-off, or VFS walk-in guidance.",
-        "End-to-end tracking until decision with status explanations.",
+        "Zero-Error Protocol: Rigorous pre-vetting ensures applications meet embassy standards before submission.",
+        "Operational Scale: Handle high volumes of student or worker placements without increasing your internal workload.",
+        "Centralized Tracking: Transparent, real-time status updates accessible via a unified agency dashboard.",
+        "Compliance Assurance: We manage constantly shifting immigration rules across multiple jurisdictions.",
       ],
-      copy:
-        "Some visas require filing in specific cities/missions. We prepare the file, align logistics, and shepherd it through the exact centre that accepts your case.",
+      copy: "We serve as your dedicated, silent visa processing department. This service is designed for recruitment and education agencies in India, Nepal, and Bangladesh looking to mitigate risk and guarantee placement success through flawless visa execution.",
     },
     steps: [
-      { title: "Case screening & route confirmation", body: "We confirm whether your case must be filed cross-border, and the exact accepting mission." },
-      { title: "Document normalisation", body: "We prepare embassy-grade copies, translations, and prescribed formats." },
-      { title: "Slot & logistics", body: "We secure a slot or advise the correct submission mode (drop-off, courier, walk-in)." },
-      { title: "Packaging & labels", body: "We assemble your file with barcode pages, cover label, and sequence." },
-      { title: "Submission & tracking", body: "We coordinate hand-off and monitor progress, informing you of key status changes." },
-      { title: "Decision & passport return", body: "We guide collection/return, biometrics repeats (if any), and next steps." },
+      { title: "Agency File Handover", body: "Secure submission of client profiles and raw documents via the Adroit B2B Portal." },
+      { title: "Pre-Vetting & Normalization", body: "Our experts screen documents, ensure compliance, and prepare embassy-grade copies, translations, and formats." },
+      { title: "Form Completion & Viling", body: "Professional completion of complex forms, digital uploads, and fee payments." },
+      { title: "Appointment & Logistics", body: "Proactive slot hunting, biometrics scheduling, and logistics coordination (courier/submission center)." },
+      { title: "Submission & Real-time Tracking", body: "Physical submission to the mission/VFS, followed by end-to-end status monitoring until decision." },
+      { title: "Passport/Decision Return", body: "Secure handling and delivery of final documents back to your agency or client." },
     ],
     included: [
-      { title: "Route & Mission Mapping", img: "/Travel (6).jpg", desc: "Exact centre, address, and accepted formats for your case." },
-      { title: "Packaging & Barcode Prep", img: "/Travel (2).jpg", desc: "Embassy-friendly order with index sheet and labels." },
-      { title: "Logistics Playbook", img: "/Travel (8).jpg", desc: "Courier/drop-off instructions and checklists." },
-      { title: "Tracking & Decision Guide", img: "/Travel (4).jpg", desc: "Status decoding and passport collection tips." },
+      { title: "Full Document Sanitization", img: "/Travel (7).jpg", desc: "Cleaning, resizing, and preparation of all proofs for automated embassy systems." },
+      { title: "Priority Slot Booking", img: "/Travel (3).jpg", desc: "Leveraging resources to secure optimal appointment times." },
+      { title: "Mission-Specific Packaging", img: "/Travel (5).jpg", desc: "Assembling files in the exact order and format mandated by the receiving mission." },
+      { title: "Dedicated Agency Manager", img: "/Travel (2).png", desc: "A single point of contact for all escalation and file management." },
     ],
   },
-
-  "visa-processing-in-india": {
-    slug: "visa-processing-in-india",
-    title: "Visa Processing in India",
-    heroImg: "/Travel (3).jpg",
+  
+  // ----------------------------------------------------------------------
+  // 2. SPECIALIZED WORK & IMMIGRATION VISAS
+  // Based on "visa-consultancy" but focused on complex, long-term categories
+  // ----------------------------------------------------------------------
+  "Work-Visa-Consultants": {
+    slug: "Work-Visa-Consultants",
+    title: "Work Visa Consultants",
+    heroImg: "/Travel (2).png",
     why: {
-      heading: "Why process your visa with us in India?",
-      image: "/Travel (3).jpg",
+      heading: "Why Choose Us for Complex Immigration Cases?",
+      image: "/Travel (2).png",
       points: [
-        "We work daily with India-based centres (VFS, BLS, TLS, embassies).",
-        "Embassy-grade documentation and packaging to avoid returns.",
-        "Proactive slot hunting and backup filing strategies.",
-        "End-to-end checklist, including biometrics day prep.",
+        "Regulatory Deep Dive: Expertise in Skilled Worker, Residency, and Employment-based immigration categories.",
+        "LCA/Sponsorship Support: Guidance on employer sponsorship documents and labor compliance requirements.",
+        "Refusal Re-filing Strategy: Specialized consulting to pivot and re-apply after a complex refusal.",
+        "Family & Dependent Alignment: Expertise in coordinating concurrent dependent visa applications.",
       ],
-      copy:
-        "A true end-to-end solution inside India—forms, uploads, packaging, slot, and submission guidance set to local centre expectations.",
+      copy: "Handling long-term employment and residency visas requires specialized legal and documentation knowledge beyond standard tourist applications. We protect your client's long-term placement goals with strategic, compliance-focused file construction.",
     },
     steps: [
-      { title: "Profile intake", body: "Purpose, duration, itinerary, previous visas and refusals." },
-      { title: "Checklist issue", body: "Your personalised list and document samples." },
-      { title: "Form & uploads", body: "Every field guided; we validate photos, PDFs, and sizes." },
-      { title: "Slot & centre", body: "Pick the right centre and a feasible date—plus plan B options." },
-      { title: "Submission day", body: "Packaging, covering letter, fee plan and biometrics tips." },
-      { title: "Tracking & collection", body: "Status alerts and collection advice." },
+      { title: "Case Qualification & Category Fit", body: "Confirming client eligibility for the target country's Work Permit or Skilled Worker visa stream." },
+      { title: "Job Offer & Sponsorship Review", body: "Vetting the employment contract and employer compliance documents (e.g., LMIAs, Sponsorship certificates)." },
+      { title: "Statutory Documentation", body: "Preparation of police clearances, medical reports, professional registrations, and education credentials." },
+      { title: "Digital Profile Submission", body: "Accurate filing on governmental portals (e.g., Express Entry, skilled migration platforms)." },
+      { title: "Interview/Biometrics Prep", body: "Targeted coaching and evidence review for necessary in-person requirements." },
+      { title: "Pre-Departure Briefing", body: "Final regulatory review and advice on maintaining compliance post-landing." },
     ],
     included: [
-      { title: "Personalised Checklist", img: "/Travel (1).jpg", desc: "Evidence mapped to your profile." },
-      { title: "Form/Upload Assistance", img: "/Travel (2).jpg", desc: "Field-by-field support & file sizing." },
-      { title: "Slot Support", img: "/Travel (7).jpg", desc: "Centre selection & timing strategy." },
-      { title: "Submission Coaching", img: "/Travel (5).jpg", desc: "Packaging order & desk process." },
+      { title: "Credential Evaluation Guide", img: "/Travel (5).jpg", desc: "Assistance with education evaluation agencies (e.g., WES, IQAS)." },
+      { title: "Proof of Funds Strategy", img: "/Travel (1).jpg", desc: "Structuring bank statements and asset declarations to meet financial requirements." },
+      { title: "Visa Interview Simulation", img: "/Travel (7).jpg", desc: "Mock interviews focusing on intent and employment ties." },
+      { title: "Regulatory Update Alerts", img: "/Travel (3).jpg", desc: "Notification of mid-process changes to immigration law." },
     ],
   },
-
-  "e-visa-processing": {
-    slug: "e-visa-processing",
-    title: "E-Visa Processing",
-    heroImg: "/Travel (5).jpg",
-    why: {
-      heading: "Why e-visa with Adroit?",
-      image: "/Travel (5).jpg",
-      points: [
-        "Correct portal, correct category—many look similar and cause rejections.",
-        "Strict photo & scan rules: size, DPI, background, and shadows.",
-        "Clean payment flow and retry handling when gateways fail.",
-        "Fast status interpretation and next-step guidance.",
-      ],
-      copy:
-        "We take care of portal navigation, uploads, payments and follow-ups for e-visa routes—so nothing breaks at the last step.",
-    },
-    steps: [
-      { title: "Portal selection", body: "We pick the official route and variant that applies to your case." },
-      { title: "Profile & form", body: "We create/verify your profile and complete the form correctly." },
-      { title: "Photos & scans", body: "We resize/retouch to pass automated checks." },
-      { title: "Payment & receipts", body: "We finish payment safely and store confirmations." },
-      { title: "Status & ETA", body: "Track milestones and download your e-visa copy." },
-      { title: "Travel checklist", body: "We send a carry-list for immigration day." },
-    ],
-    included: [
-      { title: "Portal & Category Fit", img: "/Travel (3).jpg", desc: "Use the right form the first time." },
-      { title: "Photo/Scan Validation", img: "/Travel (6).jpg", desc: "Pass automated checks reliably." },
-      { title: "Payment Support", img: "/Travel (4).jpg", desc: "Retry & receipt handling." },
-      { title: "Download & Travel Tips", img: "/Travel (8).jpg", desc: "Carry list for border control." },
-    ],
-  },
-
-  "document-legalization": {
-    slug: "document-legalization",
-    title: "Document Legalization",
+  
+  // ----------------------------------------------------------------------
+  // 3. AGENCY/B2B COMPLIANCE & VETTING
+  // Dedicated risk management service
+  // ----------------------------------------------------------------------
+  "B2B-Partnering": {
+    slug: "B2B-Partnering",
+    title: "B2B Partnering",
     heroImg: "/Travel (8).jpg",
     why: {
-      heading: "Why legalise with us?",
+      heading: "The Adroit Advantage for Agency Risk Management",
       image: "/Travel (8).jpg",
       points: [
-        "Apostille vs Consular attestation—get the correct route for your target country.",
-        "State HRD/Home, MEA, embassy—sequence handled end-to-end.",
-        "TAT clarity and courier management.",
-        "Secure handling of originals with audit trail.",
+        "Minimize Rejection Rates: Our pre-vetting process identifies and corrects 95% of common application errors.",
+        "Audit Trail Integrity: Maintain perfect records and compliance for internal and governmental audits.",
+        "Rapid Feedback Loop: Receive fast, actionable reports on file weaknesses within 24-48 hours.",
+        "Liability Shield: Transfer the burden of documentation minutiae and compliance risk to our experts.",
       ],
-      copy:
-        "Legalisation varies by destination and document type. We plan the correct route, prepare enclosures and run the file through each office.",
+      copy: "In the B2B landscape, a single rejection can damage your agency's reputation. Our Vetting service acts as a final compliance firewall, ensuring every client file leaving your office is embassy-ready and legally defensible.",
     },
     steps: [
-      { title: "Route confirmation", body: "Apostille for Hague countries; attestation for others." },
-      { title: "Pre-checks & notarisation", body: "Name/DoB match, translations, affidavits, notary where required." },
-      { title: "State verification", body: "HRD/Home verification for education/personal docs as applicable." },
-      { title: "MEA stage", body: "Apostille/MEA attestation." },
-      { title: "Embassy/Consulate stage", body: "Final stamping for non-Hague countries." },
-      { title: "Return logistics", body: "Secure dispatch and scanner copies for your records." },
+      { title: "Bulk File Upload", body: "Secure, encrypted upload of batches of client files to your dedicated B2B portal." },
+      { title: "Error & Integrity Check", body: "Consultants verify every document against the mission's current requirements, flagging missing or incorrect items." },
+      { title: "Risk Assessment & Report", body: "Detailed report issued for each file, outlining risk factors (e.g., funding gaps, unclear intent, name mismatches)." },
+      { title: "Remediation Guidance", body: "Clear, step-by-step instructions for your team to fix identified issues and secure missing proofs." },
+      { title: "Final Compliance Sign-off", body: "We provide a compliance certification for files deemed submission-ready." },
+      { title: "Strategy Session", body: "Optional debriefing session to review trends and improve your agency's internal intake process." },
     ],
     included: [
-      { title: "Route Plan & TAT", img: "/Travel (5).jpg", desc: "Clear steps and timelines." },
-      { title: "Enclosure Prep", img: "/Travel (1).jpg", desc: "Affidavits, translations, authorisations." },
-      { title: "Multi-office Handling", img: "/Travel (7).jpg", desc: "State → MEA → Embassy sequence." },
-      { title: "Secure Return", img: "/Travel (2).jpg", desc: "Tamper-proof packaging & proofs." },
+      { title: "Document Integrity Scorecard", img: "/Travel (6).jpg", desc: "A numerical measure of file readiness." },
+      { title: "Name & Date Consistency Check", img: "/Travel (4).jpg", desc: "Automated scan for critical data mismatches across all documents." },
+      { title: "Funds Calculation Validation", img: "/Travel (3).jpg", desc: "Verification that required maintenance funds/tuition are correctly calculated and shown." },
+      { title: "Bespoke Training Modules", img: "/Travel (8).jpg", desc: "Training for your agency staff on common pitfalls and new regulations." },
     ],
   },
 
-  "express-consultation": {
-    slug: "express-consultation",
-    title: "Express Consultation",
-    heroImg: "/Travel (6).jpg",
-    why: {
-      heading: "Why Express?",
-      image: "/Travel (6).jpg",
-      points: [
-        "30-minute fast track—get answers today.",
-        "Ideal for last-minute itineraries and tricky refusals.",
-        "You leave with a checklist and a go/no-go plan.",
-        "Upgrade to full processing anytime.",
-      ],
-      copy:
-        "A focused consult for urgent files. Bring your doubts—we’ll cut noise, prioritise fixes and hand you a practical action sheet.",
-    },
-    steps: [
-      { title: "Pick a slot", body: "Choose a same-day or next-day time." },
-      { title: "Share docs", body: "Upload passport, past visas, and key proofs." },
-      { title: "Consult live", body: "30 minutes of focused advice and risk mapping." },
-      { title: "Get your plan", body: "Receive a concise action checklist." },
-      { title: "Optional upgrade", body: "Switch to full service if you want us to execute the plan." },
-      { title: "Follow-up (optional)", body: "One clarifying email allowed within 48 hours." },
-    ],
-    included: [
-      { title: "Rapid Risk Scan", img: "/Travel (4).jpg", desc: "We identify what can break your file." },
-      { title: "Action Checklist", img: "/Travel (3).jpg", desc: "A crisp to-do with examples." },
-      { title: "Category Fit Advice", img: "/Travel (8).jpg", desc: "Pick the most defensible route." },
-      { title: "Upgrade Credit", img: "/Travel (6).jpg", desc: "Fee adjusted if you go full-service." },
-    ],
-  },
 };

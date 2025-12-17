@@ -1,46 +1,62 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { FiChevronRight, FiX } from "react-icons/fi"
+import { FiCheckCircle } from "react-icons/fi"
 
 const items = [
   {
     id: "01",
-    title: "Visa Consultancy",
-    body:
-      "Adroit Travels consultancy service ensures smooth visa processing. Our professionals guide you with accurate documentation checks and application best-practices.",
-    image: "/Travel (7).jpg",
+    title: "Visa Application Assitance",
+    body: "We function as your dedicated visa processing department. This service covers comprehensive document submission, biometrics scheduling, and full coordination with Embassies/Consulates (similar to VFS/BLS centers), ensuring high-volume, error-free client processing for your recruitment or education agency.",
+    image: "/Travel (7).jpg", slug: "Visa-Application-Assistance",
   },
   {
     id: "02",
-    title: "Cross-border Visa Processing",
-    body:
-      "We support cross-border visa logistics including document handling and embassy submission coordination so clients can focus on travel plans.",
-    image: "/Travel (4).jpg",
+    title: "Work Visas Consultants",
+    body: "Expert consultation and hands-on preparation for complex, long-term visa categories (e.g., Work Permits, Skilled Worker, Residence). Our consultants manage the specific requirements and legal complexities associated with permanent and employment-based immigration applications, often referenced by agencies like Continental Immigration.",
+    image: "/Travel (4).jpg",slug: "Work-Visa-Consultants",
   },
   {
     id: "03",
-    title: "Visa Processing in India",
-    body:
-      "Full-service visa processing inside India — we screen your documents, prepare your application and submit on your behalf through authorized channels.",
+    title: "B2B Partnering",
+    body: "A dedicated partnership solution where we provide compliant document checking, application pre-vetting, and regulatory guidance. We reduce your operational risk and liability by ensuring all client files meet stringent embassy requirements before submission, aligning with rigorous B2B standards.",
+    slug: "B2B-Partnering",
     image: "/Travel (2).png",
-  },
-  {
-    id: "04",
-    title: "E-Visa Processing",
-    body:
-      "Assistance with e-visa forms, uploads and tracking for countries that allow electronic visas for Indian applicants.",
-    image: "/Travel (1).png",
-  },
+  }
 ]
 
-export default function ServicesAccordion() {
-  const [active, setActive] = useState(null)
+// Framer Motion Variants for Staggered Entrance
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
 
-  const openCard = (i) => setActive(i)
-  const closeCard = () => setActive(null)
+const itemVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+    },
+  },
+}
+
+
+export default function ServicesHorizontal() {
+  // Start with the first item active
+  const [active, setActive] = useState(0)
+
+  // Get the content of the currently active item
+  const activeItem = items[active];
 
   return (
     <section className="container py-10 sm:py-14">
+
       {/* Section Header */}
       <div className="text-center mb-10">
         <p className="text-xs sm:text-sm text-gray-400 uppercase tracking-wide mb-1">
@@ -48,110 +64,111 @@ export default function ServicesAccordion() {
         </p>
 
         <h2 className="text-3xl sm:text-4xl font-extrabold px-4">
-          <span className="text-[#1c4dde]">Services</span> offered by Adroit Travels
+          <span className="text-blue-900">Services</span> offered by Adroit Travels
         </h2>
       </div>
 
-      {/* NEW UI → CARD GRID */}
-      <div className="grid gap-6 sm:gap-8 sm:grid-cols-2">
-        {items.map((item, i) => (
-          <div
-            key={i}
-            className="bg-white border border-gray-200 rounded-2xl shadow-md overflow-hidden group relative flex flex-col sm:flex-row"
-          >
-            {/* Left Image (big) */}
-            <div className="w-full sm:w-1/3 h-40 sm:h-auto flex items-center justify-center bg-gray-50 p-4">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-28 h-28 sm:w-32 sm:h-32 object-contain"
-              />
-            </div>
+      {/* NEW UI → HORIZONTAL MASTER-DETAIL LAYOUT */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-            {/* Right Content */}
-            <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between">
-              <div>
-                <span className="text-[#1c4dde] font-bold text-lg">{item.id}</span>
-                <h3 className="text-[1.15rem] sm:text-xl font-semibold text-[#0b2466] mt-1 leading-snug">
-                  {item.title}
-                </h3>
-              </div>
+        {/* === COLUMN 1: MASTER LIST (Vertical Controls) === */}
+        <motion.ul
+          className="space-y-3 lg:col-span-1"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {items.map((item, i) => (
+            <motion.li
+              key={item.id}
+              variants={itemVariants}
+              onClick={() => setActive(i)}
+              className={`
+                p-4 sm:p-5 rounded-xl  cursor-pointer transition-all duration-300
+                ${i === active
+                  ? 'bg-[#151236] text-[#fff] shadow-lg border-[#1c4dde]'
+                  : 'bg-white text-gray-800 hover:bg-gray-50 border-gray-200'
+                }
+              `}
+            >
+              <h3 className="text-lg sm:text-xl font-semibold leading-snug">
+                {item.title}
+              </h3>
+              <p className={`text-sm mt-1 ${i === active ? 'text-white/80' : 'text-gray-500'}`}>
+                {item.body.split('. ')[0] + '.'} {/* Show snippet */}
+              </p>
+            </motion.li>
+          ))}
+        </motion.ul>
 
-              {/* Button */}
-              <button
-                onClick={() => openCard(i)}
-                className="mt-4 flex items-center gap-2 text-[#1c2b5a] font-semibold hover:text-[#1c4dde] transition"
+        {/* === COLUMN 2 & 3: DETAIL PANEL (Expanded Content) === */}
+        <div className="lg:col-span-2 relative min-h-[400px]">
+          <AnimatePresence mode="wait">
+            {activeItem && (
+              <motion.div
+                key={activeItem.id} // Key ensures re-mount and transition on content change
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="p-6 sm:p-8 rounded-2xl  h-full"
               >
-                View Details
-                <FiChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-        ))}
+                <div className="flex flex-col sm:flex-row gap-6 mb-6 items-center ">
+
+                  {/* Image */}
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 bg-gray-50 rounded-lg p-2">
+                    <img
+                      src={activeItem.image}
+                      alt={activeItem.title}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+
+                  {/* Title & Status */}
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[#0b2466] mb-2">
+                      {activeItem.title}
+                    </h3>
+                    <div className="text-sm font-medium text-green-600 flex items-center gap-1">
+                      <FiCheckCircle size={18} /> Fully Managed Service
+                    </div>
+                  </div>
+                </div>
+
+                {/* Full Body Content */}
+                <p className="text-gray-700 leading-relaxed text-base sm:text-lg border-t py-4 mt-4">
+                  {activeItem.body}
+                </p>
+
+                {/* Call to Action */}
+                <a
+                  href={`/services/${activeItem.slug}`}
+                // className="mt-6 inline-block px-6 py-3 rounded-lg text-[#1c4dde] font-semibold hover:bg-[#1c4dde] hover:text-white transition"
+                >
+                  <button
+                    className="my-3 CTA"
+                  >
+
+                    View Full Service
+                  </button>
+                </a>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
 
-      {/* EXPANDED OVERLAY PANEL */}
-      <AnimatePresence>
-        {active !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm flex justify-center items-center px-4 z-[100]"
-          >
-            <motion.div
-              initial={{ y: 60, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 60, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-2xl shadow-xl max-w-xl w-full p-6 relative"
-            >
-              {/* Close Button */}
-              <button
-                onClick={closeCard}
-                className="absolute top-4 right-4 text-gray-500 hover:text-black transition"
-              >
-                <FiX size={24} />
-              </button>
-
-              {/* Image */}
-              <div className="w-full flex justify-center mb-4">
-                <img
-                  src={items[active].image}
-                  alt={items[active].title}
-                  className="w-40 h-40 sm:w-48 sm:h-48 object-contain"
-                />
-              </div>
-
-              <h3 className="text-2xl font-bold text-[#0b2466] mb-3">
-                {items[active].title}
-              </h3>
-
-              <p className="text-gray-600 leading-relaxed">
-                {items[active].body}
-              </p>
-
-              <a
-                href={`/services/${items[active].title.toLowerCase().replace(/\s+/g, "-")}`}
-                className="mt-6 inline-block px-6 py-3 border border-[#1c2b5a] rounded-lg text-[#1c2b5a] font-semibold hover:bg-[#1c2b5a] hover:text-white transition"
-              >
-                View Service Details
-              </a>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Bottom Button */}
-      <div className="flex justify-center mt-12">
+      {/* <div className="flex justify-center mt-12">
         <a 
-        style={{color:"white"}}
+          style={{color:"white"}}
           href="/services" 
           className="px-7 py-3 rounded-lg bg-[#23336f] text-white font-semibold hover:bg-[#153ab0] transition"
         >
           View All Services
         </a>
-      </div>
+      </div> */}
     </section>
   )
 }

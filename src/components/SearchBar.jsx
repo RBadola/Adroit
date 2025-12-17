@@ -1,16 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { sampleCountries } from '../data/countries'
 
 const visaCategories = [
   "Business Visit Visa",
   "Conference/Event Visa",
   "Event Visa",
-  "Family Visit Visa",
-  "Join Family Visa",
-  "Study Visa",
-  "Tourist Visa",
   "Work Visa",
-  "Medical Visa",
   "Transit Visa",
   "Others"
 ]
@@ -20,9 +15,30 @@ export default function SearchBar() {
   const [visaCategory, setVisaCategory] = useState("")
   const [openCat, setOpenCat] = useState(false)
 
+  // 1. Create a ref for the dropdown container
+  const dropdownRef = useRef(null)
+
+  // 2. Use useEffect to handle outside clicks
+  useEffect(() => {
+    function handleClickOutside(event) {
+      // Check if the click is outside the dropdown element
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpenCat(false) // Close the dropdown
+      }
+    }
+
+    // Attach the event listener when the component mounts
+    document.addEventListener("mousedown", handleClickOutside)
+
+    // Detach the event listener when the component unmounts (cleanup)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [dropdownRef]) // Re-run effect if dropdownRef changes (though it won't here, it's good practice)
+
   return (
     <div className="container -mt-4 sm:-mt-8">
-      <div className="bg-white border-2 border-gray-200 rounded-2xl p-4 sm:p-6 shadow-xl">
+      <div className="bg-white border-2 border-gray-200 rounded-2xl p-4 sm:p-8 shadow-xl">
 
         <form className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 items-end md:items-center justify-center">
 
@@ -31,6 +47,8 @@ export default function SearchBar() {
             <label className="text-sm text-gray-600">I'm a Citizen of</label>
             <select className="w-full mt-2 p-3 border-2 border-[#23336f] rounded-lg bg-white">
               <option>India</option>
+              <option>Nepal</option>
+              <option>Bangladesh</option>
             </select>
           </div>
 
@@ -52,7 +70,8 @@ export default function SearchBar() {
           </div>
 
           {/* Visa Category custom dropdown */}
-          <div className="relative">
+          {/* 3. Attach the ref to the outer container */}
+          <div className="relative" ref={dropdownRef}>
             <label className="text-sm text-gray-600">Visa Category</label>
 
             <button
@@ -74,7 +93,7 @@ export default function SearchBar() {
             </button>
 
             {openCat && (
-              <div style={{backgroundColor:"white"}} className="absolute left-0 right-0 mt-2 bg-white border-2 border-gray-200 rounded-lg shadow-lg max-h-56 overflow-y-auto z-50">
+              <div style={{ backgroundColor: "white" }} className="absolute left-0 right-0 mt-2 bg-white border-2 border-gray-200 rounded-lg shadow-lg max-h-56 overflow-y-auto z-50">
                 {visaCategories.map((c) => (
                   <button
                     key={c}
@@ -94,10 +113,10 @@ export default function SearchBar() {
 
           {/* Check button */}
 
-          <div className="flex items-center justify-center" style={{color:"white"}}>
+          <div className="flex items-center justify-center" style={{ color: "white" }}>
             <button
               type="button"
-              className="px-5 py-3 rounded-lg bg-[#23336f] text-white font-semibold hover:bg-[#16204a] transition"
+              className="CTA"
             >
               Check Details
             </button>

@@ -3,240 +3,282 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { FiHome, FiChevronRight } from "react-icons/fi"
 import { FaUsers } from "react-icons/fa"
+import { motion } from "motion/react"
 
-// ---- Replace these with your real illustrations later ----
+// ---- Assets ----
 const HERO_ART   = "/Travel (1).jpg"
 const WHAT_ART_1 = "/Travel (6).jpg"
 const WHAT_ART_2 = "/Travel (7).jpg"
-const MISSION_1  = "/Travel (5).jpg"
-const MISSION_2  = "/Travel (8).jpg"
-const MISSION_3  = "/Travel (2).png"
-const MISSION_4  = "/Travel (1).png"
 const CTA_LEFT   = "/Travel (3).jpg"
 const CTA_RIGHT  = "/Travel (4).jpg"
-// ---------------------------------------------------------
+
+// ---- Animation Variants ----
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+}
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+}
 
 export default function About() {
   return (
-    <main className="bg-white text-[#0b1c3d]">
-      {/* HERO */}
-      <section className="relative overflow-hidden" style={{color:"white"}}>
+    <main className="bg-white text-[#0b1c3d] overflow-x-hidden">
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden" style={{ color: "white" }}>
         <div className="absolute inset-0 bg-gradient-to-b from-[#1f55c0] to-[#1a47a6]" />
         <div
           className="absolute inset-0 opacity-20"
           aria-hidden
           style={{
-            backgroundImage:
-              "radial-gradient(1px 1px at 1px 1px, rgba(255,255,255,.6) 1px, transparent 0)",
+            backgroundImage: "radial-gradient(1px 1px at 1px 1px, rgba(255,255,255,.6) 1px, transparent 0)",
             backgroundSize: "18px 18px",
           }}
         />
-        <div className="relative z-10 text-white">
-          <div className="container py-10 md:py-14">
-            <nav className="flex items-center gap-2 text-white/90 text-sm mb-5">
-              <FiHome />
-              <Link to="/" className="hover:underline">Home</Link>
-              <FiChevronRight className="opacity-70" />
-              <span>About</span>
-            </nav>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-              <div className="md:col-span-2">
-                <h1 className="text-3xl md:text-4xl font-extrabold">
-                  About Adroit Travels
-                </h1>
-                <p className="mt-4 text-white/95 leading-relaxed">
-                  Welcome to Adroit Travels—your India-focused visa & travel partner.
-                  We simplify complex requirements using modern tooling, clear instructions,
-                  and locally relevant guidance. From document strategy to appointments and
-                  checklists, we keep your journey effortless and efficient.
-                </p>
-              </div>
-              <div className="md:col-span-1">
-                <div className="rounded-xl bg-white p-4 shadow-md ring-1 ring-white/40">
-                  <img src={HERO_ART} alt="" className="w-full h-44 md:h-48 object-contain rounded-lg" />
-                </div>
-              </div>
+        <motion.div 
+          className="relative z-10 container py-10 md:py-14"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
+          <motion.nav variants={fadeInUp} className="flex items-center gap-2 text-white/90 text-sm mb-5">
+            <FiHome />
+            <Link to="/" className="hover:underline">Home</Link>
+            <FiChevronRight className="opacity-70" />
+            <span>About</span>
+          </motion.nav>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <div className="md:col-span-2">
+              <motion.h1 variants={fadeInUp} className="text-3xl md:text-4xl font-extrabold">
+                About Adroit Travels
+              </motion.h1>
+              <motion.p variants={fadeInUp} className="mt-4 text-white/95 leading-relaxed">
+                Adroit Travels is a B2B-focused visa processing and mobility support company,
+                built to serve recruitment agencies, education consultants, and corporate
+                mobility teams. We operate as a silent backend partner—handling compliance,
+                documentation, and embassy coordination.
+              </motion.p>
             </div>
+
+            <motion.div 
+              variants={fadeInUp}
+              className="md:col-span-1"
+            >
+              <div className="rounded-xl bg-white p-4 shadow-md ring-1 ring-white/40">
+                <img src={HERO_ART} alt="" className="w-full h-44 md:h-48 object-cover rounded-lg" />
+              </div>
+            </motion.div>
           </div>
-        </div>
-        {/* white seam */}
+        </motion.div>
+
         <div className="relative z-0 h-6 bg-white rounded-t-[2rem] mt-6 mx-auto w-[96%]" />
       </section>
 
       {/* WHAT IS / INTRO CONTENT */}
       <section className="container py-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* left collage */}
-          <div className="lg:col-span-1 grid grid-cols-2 gap-3">
-            <div className="rounded-2xl overflow-hidden">
+          {/* Left Collage - Animated from Left */}
+          <motion.div 
+            className="lg:col-span-1 grid grid-cols-2 gap-3"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="rounded-2xl overflow-hidden shadow-sm">
               <img src={WHAT_ART_1} alt="" className="w-full h-full object-cover" />
             </div>
-            <div className="rounded-2xl overflow-hidden">
+            <div className="rounded-2xl overflow-hidden shadow-sm">
               <img src={WHAT_ART_2} alt="" className="w-full h-full object-cover" />
             </div>
             <div className="col-span-2 rounded-2xl bg-white border shadow-sm p-4">
               <img src={HERO_ART} alt="" className="w-full h-36 object-contain" />
             </div>
-          </div>
+          </motion.div>
 
-          {/* right copy */}
-          <div className="lg:col-span-2">
+          {/* Right Copy - Animated from Right */}
+          <motion.div 
+            className="lg:col-span-2"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
             <article className="rounded-2xl bg-white border shadow-sm p-6">
-              <h2 className="text-xl font-bold">What is <span className="text-[#1a47a6]">Adroit Travels</span>?</h2>
+              <h2 className="text-xl font-bold">
+                What is <span className="text-[#1a47a6]">Adroit Travels</span>?
+              </h2>
               <p className="mt-3 text-gray-700 leading-relaxed">
-                Adroit Travels is an India-first visa support and travel facilitation brand.
-                We blend local know-how with global standards to make visa processing genuinely
-                simpler. Our consultants evaluate your profile, craft a clear strategy, and
-                guide you through forms, checklists, packaging, and submissions—so your file
-                communicates exactly what missions want to see.
+                Adroit Travels is a professional visa processing partner designed specifically
+                for B2B operations. We work behind the scenes for agencies and enterprises that
+                move people across borders.
               </p>
               <p className="mt-3 text-gray-700 leading-relaxed">
-                With routes across 180+ countries and deep familiarity with Indian centres
-                (VFS, BLS, TLS, embassies), we help you avoid common pitfalls and keep
-                timelines realistic. No hype—just reliable execution.
+                Unlike traditional consultants, we focus on operational precision. Our clients rely on us not
+                just for approvals—but for predictability, speed, and reduced operational risk.
               </p>
             </article>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* STATS + WHAT WE DO */}
       <section className="container py-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* stats cards */}
-          <div className="grid grid-cols-3 gap-4">
-            <StatCard label="Countries Info" value="185+" />
-            <StatCard label="Organizations Relying" value="1,000+" />
-            <StatCard label="Travellers Served" value="3.2M+" />
-          </div>
+          <motion.div 
+            className="grid grid-cols-3 gap-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <StatCard label="Countries" value="185+" />
+            <StatCard label="Partners" value="1,000+" />
+            <StatCard label="Processed" value="3.2M+" />
+          </motion.div>
 
-          {/* what we do */}
-          <div className="lg:col-span-2 rounded-2xl bg-white border shadow-sm p-6">
-            <h3 className="text-xl font-bold">What We Do?</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              We deliver end-to-end visa help for Indian travellers—consultation, checklist design,
-              documentation, forms & uploads, appointment planning, packaging and submission coaching.
-              Where e-visa routes exist, we take care of the portal, photo/scan validations, payments,
-              and downloads. For legalisation, we plan apostille/attestation sequences, prepare
-              enclosures and manage logistics with care.
-            </p>
-            <ul className="mt-4 list-disc pl-5 text-gray-700 space-y-2">
-              <li>India-specific checklists and embassy-grade packaging.</li>
-              <li>Proactive slot strategy for VFS/BLS/TLS & consulates.</li>
-              <li>Interview and risk prep for tricky profiles or past refusals.</li>
-              <li>Clear, realistic timelines—no surprises.</li>
+          <motion.div 
+            className="lg:col-span-2 rounded-2xl bg-white border shadow-sm p-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-xl font-bold">What We Do for Our Clients</h3>
+            <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
+              {[
+                "Country-specific compliance audits.",
+                "Document structuring & SOPs.",
+                "Appointment coordination.",
+                "High-volume processing.",
+                "Clear tracking & reporting."
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                  {item}
+                </li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* MISSION / VISION */}
-      <section className="container py-12">
+      <motion.section 
+        className="container py-12"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <article>
-            <h4 className="text-sm text-gray-500">Our Journey</h4>
-            <h3 className="text-2xl font-extrabold">Our <span className="text-[#1a47a6]">Mission</span></h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              To remove stress from visa & document workflows in India by designing precise,
-              human-friendly processes—and to ensure every traveller is confident in their file.
-            </p>
-            <div className="mt-5 grid grid-cols-2 gap-3">
-              <RoundedImage src={MISSION_1} />
-              <RoundedImage src={MISSION_2} />
-              <RoundedImage src={MISSION_3} />
-              <RoundedImage src={MISSION_4} />
-            </div>
-          </article>
+          <motion.article variants={fadeInUp} className="p-6 rounded-2xl bg-blue-50/50 border border-blue-100">
+            <h4 className="text-sm text-gray-500 uppercase tracking-widest">Our Purpose</h4>
+            <h3 className="text-2xl font-extrabold mt-1">Our <span className="text-[#1a47a6]">Mission</span></h3>
+            <p className="mt-3 text-gray-700 leading-relaxed">To become the most reliable visa processing backend for B2B mobility partners.</p>
+          </motion.article>
 
-          <article>
-            <h4 className="text-sm text-gray-500">Our Journey</h4>
-            <h3 className="text-2xl font-extrabold">Our <span className="text-[#1a47a6]">Vision</span></h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              A borderless, predictable experience for international travel—powered by
-              clarity, ethics, and modern tools. We believe Indian applicants should
-              always know “what, why, and when” at each step.
-            </p>
-            <div className="mt-5 grid grid-cols-2 gap-3">
-              <RoundedImage src={MISSION_2} />
-              <RoundedImage src={MISSION_3} />
-              <RoundedImage src={MISSION_4} />
-              <RoundedImage src={MISSION_1} />
-            </div>
-          </article>
+          <motion.article variants={fadeInUp} className="p-6 rounded-2xl bg-blue-50/50 border border-blue-100">
+            <h4 className="text-sm text-gray-500 uppercase tracking-widest">Our Direction</h4>
+            <h3 className="text-2xl font-extrabold mt-1">Our <span className="text-[#1a47a6]">Vision</span></h3>
+            <p className="mt-3 text-gray-700 leading-relaxed">To set the standard for transparent, scalable, and data-driven visa workflows.</p>
+          </motion.article>
         </div>
-      </section>
+      </motion.section>
 
-      {/* CORPORATE CLIENTS STRIP (placeholder logos) */}
+      {/* CORPORATE CLIENTS STRIP */}
       <section className="py-12 bg-[#f8fafc]">
         <div className="container">
-          <h4 className="text-sm text-gray-500 text-center">Our Journey</h4>
-          <h3 className="text-xl md:text-2xl font-extrabold text-center">Our Corporate Clients</h3>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h4 className="text-sm text-gray-500">Trusted By</h4>
+            <h3 className="text-xl md:text-2xl font-extrabold">Recruitment & Mobility Partners</h3>
+          </motion.div>
 
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-5 gap-4">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <div key={i} className="h-14 rounded-xl bg-white border shadow-sm grid place-items-center">
-                <span className="text-gray-400 text-sm flex items-center gap-2">
-                  <FaUsers /> Logo {i + 1}
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-5 gap-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.05 } }
+            }}
+          >
+            {Array.from({ length: 5 }).map((_, i) => (
+              <motion.div
+                key={i}
+                variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }}
+                className="h-16 rounded-xl bg-white border border-gray-100 shadow-sm grid place-items-center grayscale hover:grayscale-0 transition-all cursor-default"
+              >
+                <span className="text-gray-400 text-sm font-medium flex items-center gap-2">
+                  <FaUsers className="text-blue-500" /> Partner Agency
                 </span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* APPOINTMENT CTA */}
       <section className="container py-14">
-        <div className="rounded-2xl border bg-white shadow-sm p-6 md:p-8">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-            <img src={CTA_LEFT} alt="" className="md:col-span-1 w-full object-contain" />
-            <div className="md:col-span-3">
-              <h2 className="text-2xl md:text-3xl font-extrabold">
-                Get Adroit Travels <span className="text-[#1a47a6]">Free Appointment</span>
+        <motion.div 
+          className="rounded-3xl border bg-white shadow-xl p-8 md:p-12 relative overflow-hidden"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center relative z-10">
+            <img src={CTA_LEFT} alt="" className="md:col-span-1 w-full object-contain hidden md:block" />
+
+            <div className="md:col-span-3 text-center md:text-left">
+              <h2 className="text-2xl md:text-4xl font-extrabold">
+                Start a <span className="text-[#1a47a6]">B2B Partnership</span>
               </h2>
-              <p className="mt-3 text-gray-700">
-                Pick a slot, share your profile, and we’ll map your best route—online or in person.
+              <p className="mt-4 text-gray-600 text-lg">
+                Discuss your visa volumes and target countries. We’ll design a processing workflow tailored to your business.
               </p>
-              <div className="mt-5 flex gap-3 flex-wrap">
-                <Link
-                  to="/appointments"
-                  className="px-5 py-3 rounded-xl bg-[#1a47a6] text-white font-semibold hover:brightness-95"
-                >
-                  Book Appointment
+
+              <div className="mt-8 flex gap-4 flex-wrap justify-center md:justify-start">
+                <Link to="/appointments" className="px-8 py-4 rounded-2xl bg-[#1a47a6] text-white font-bold shadow-lg hover:shadow-blue-200 transition-all">
+                  Book Partnership Call
                 </Link>
-                <a
-                  href="https://wa.me/919999999999"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-5 py-3 rounded-xl border font-semibold hover:bg-gray-50"
-                >
-                  Ask Question
+                <a href="https://wa.me/919811038434" className="px-8 py-4 rounded-2xl border-2 border-gray-200 font-bold hover:bg-gray-50 transition-all">
+                  WhatsApp Us
                 </a>
               </div>
             </div>
-            <img src={CTA_RIGHT} alt="" className="md:col-span-1 w-full object-contain" />
+
+            <img src={CTA_RIGHT} alt="" className="md:col-span-1 w-full object-contain hidden md:block" />
           </div>
-        </div>
+        </motion.div>
       </section>
     </main>
   )
 }
 
-/* --------- small helpers --------- */
-
 function StatCard({ label, value }) {
   return (
-    <div className="rounded-2xl bg-white border shadow-sm p-5 text-center">
-      <div className="text-3xl font-extrabold text-[#1a47a6]">{value}</div>
-      <div className="text-xs uppercase tracking-wide text-gray-500 mt-1">{label}</div>
-    </div>
-  )
-}
-
-function RoundedImage({ src }) {
-  return (
-    <div className="rounded-2xl overflow-hidden h-28">
-      <img src={src} alt="" className="w-full h-full object-fill object-top" />
-    </div>
+    <motion.div 
+      variants={{
+        hidden: { opacity: 0, scale: 0.5 },
+        visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100 } }
+      }}
+      className="rounded-2xl bg-white border shadow-sm p-4 text-center hover:shadow-md transition-shadow"
+    >
+      <div className="text-2xl md:text-3xl font-extrabold text-[#1a47a6]">{value}</div>
+      <div className="text-[10px] uppercase tracking-tighter text-gray-500 mt-1 font-bold">
+        {label}
+      </div>
+    </motion.div>
   )
 }

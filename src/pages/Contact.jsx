@@ -53,7 +53,7 @@ export default function Contact() {
   return (
     <main className="bg-white text-[#0b1c3d]">
       {/* HERO (matches your theme) */}
-      <header className="relative overflow-hidden">
+      <header className="relative overflow-hidden text-[#fff]">
         <div className="absolute inset-0 bg-gradient-to-b from-[#1f55c0] to-[#1a47a6]" />
         <div
           aria-hidden
@@ -228,9 +228,9 @@ export default function Contact() {
                 <div className="md:col-span-2 flex gap-3">
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#1c4dde] px-5 py-3 font-semibold text-white hover:brightness-95"
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#1c4dde] px-5 py-3 font-semibold text-[#fff] hover:brightness-95"
                   >
-                    <FiSend className="text-white" />
+                    <FiSend className="text-[#fff]" />
                     Send Message
                   </button>
                   <a
@@ -257,9 +257,10 @@ export default function Contact() {
                    "86/3 Janpath Connaught Place New Delhi-110001"
                   ]}
                   phone="+919811038434"
-                  mapSrc="https://maps.google.com/maps?q=Connaught%20Place,%20New%20Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  phone2="+919811038435"
+                  mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.028687926902!2d77.21766197457269!3d28.62890228424723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd35d3094893%3A0x9dca0496f6bdb0da!2s86%2F3%2C%20Atul%20Grove%20Road%2C%20Janpath%2C%20Connaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1765980238659!5m2!1sen!2sin"
                 />
-            
+            {/* <iframe src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
               </div>
             </div>
           </div>
@@ -369,7 +370,7 @@ function ErrorText({ text }) {
   return <div className="mt-1 text-xs text-red-600">{text}</div>;
 }
 
-function Office({ city, address = [], phone, mapSrc }) {
+function Office({ city, address = [], phone,phone2, mapSrc }) {
   return (
     <div className="rounded-xl border p-4">
       <div className="flex items-center gap-2 text-[#0b2466] font-semibold">
@@ -385,6 +386,12 @@ function Office({ city, address = [], phone, mapSrc }) {
         <FiPhone className="text-gray-500" />
         <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:underline">
           {phone}
+        </a>
+      </div>
+       <div className="mt-2 text-sm text-gray-700 flex items-center gap-2">
+        <FiPhone className="text-gray-500" />
+        <a href={`tel:${phone2.replace(/\s/g, "")}`} className="hover:underline">
+          {phone2}
         </a>
       </div>
       <div className="mt-3 h-44 w-full overflow-hidden rounded-lg border">

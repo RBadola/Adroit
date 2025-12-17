@@ -33,7 +33,7 @@ export default function Services() {
       </header>
 
       {/* 3×2 grid on desktop — responsive down to 1 col on mobile */}
-      <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-2">
         {items.map((s) => (
           <ServiceCard
             key={s.slug}

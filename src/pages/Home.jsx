@@ -7,6 +7,7 @@ import CountriesGrid from '../components/CountriesGrid'
 import Stats from '../components/Stats'
 import WhyChoose from '../components/WhyChoose'
 import VisaSteps from '../components/VisaSteps'
+import ContactBtns from '../components/ContactBtns'
 
 export default function Home(){
   return (
@@ -18,6 +19,7 @@ export default function Home(){
       <ServicesAccordion />
       <Stats />
       <VisaSteps/>
+      <ContactBtns/>
     </main>
   )
 }

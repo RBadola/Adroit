@@ -8,13 +8,82 @@
 }
 
 
-body { @apply bg-white text-blue-900; }
+body { @apply bg-white ; }
 
 a {
   @apply text-white;
 }
 
-
+button{
+  @apply cursor-pointer;
+}
 /* small helpers */
 .container { @apply max-w-7xl mx-auto px-4 sm:px-6; }
 .card { @apply bg-white rounded-xl shadow-md p-4 sm:p-6; }
+
+.CTA {
+ padding: 15px 25px;
+ border: unset;
+ border-radius: 15px;
+ color:  #1c398e;
+ z-index: 1;
+ background: #e8e8e8;
+ position: relative;
+ font-weight: 1000;
+ font-size: 17px;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms;
+ overflow: hidden;
+}
+
+.CTA::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;
+ border-radius: 15px;
+ background-color: #151236;
+ z-index: -1;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms
+}
+
+.CTA:hover {
+ color: #e8e8e8;
+}
+
+.CTA:hover::before {
+ width: 100%;
+}
+.slow-bounce-box {
+  /* Basic styling for visibility */
+  width: 200px;
+  /* padding: 20px; */
+  /* background-color: #23336f; Example background color */
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  /* margin: 50px auto; */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  /* --- The Animation --- */
+  animation: slow-bounce 6s infinite;
+}
+
+@keyframes slow-bounce {
+  0%, 100% {
+    /* The element's starting and ending position */
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1); /* Slow out (ease-out) */
+  }
+  
+  50% {
+    /* The lowest point of the bounce */
+    transform: translateY(20px); /* Adjust this value for bounce height */
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1); /* Slow in (ease-in) */
+  }
+}
